@@ -1,0 +1,25 @@
+[
+    {
+        "version": "0.1.1",
+        "date": "November 17, 2024",
+        "changes": [
+            "Fixed picker bug",
+            "Reorganized folders & files"
+        ],
+        "whatscoming" : [
+            "New components : 'Checkbox', 'Radio', 'Switch'",
+            "New features : 'Dark mode', 'Light mode'",
+            "Small set of icons"
+        ],  
+        "link" : "https://public.naflows.com/@library/library@0.1.1.zip"
+    },
+    {
+        "version": "0.1.0",
+        "date": "November 9, 2024",
+        "changes": [
+            "Initial release",
+            "Added basic functionality"
+        ],
+        "link" : "https://public.naflows.com/@library/library@0.1.0.zip"
+    }
+]
