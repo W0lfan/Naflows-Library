@@ -19,9 +19,15 @@ $colors: (
     app-text-color-on-background : $app-text-color-on-background,
     app-text-color-on-background-lighter : lighter($app-text-color-on-background, 30%),
 
+
     app-background-color : $app-background-color,
     app-background-color-lighter : lighter($app-background-color, 30%),
     app-background-color-darker : darker($app-background-color, 4.5%),
+    app-background-color-slightly-darker : darker($app-background-color, 5.5%),
+    app-background-color-slightly-lighter : lighter($app-background-color, 5.5%),
+    app-background-color-heavily-darker : darker($app-background-color, 10%),
+    app-background-color-heavily-lighter : lighter($app-background-color, 10%),
+
 
     app-secondary : $app-secondary,
     app-secondary-darker : darker($app-secondary, 4.5%),

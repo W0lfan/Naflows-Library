@@ -5,6 +5,26 @@
 @import '../@styling/components/input.scss';
 @import '../@styling/components/select.scss';
 
+
+@keyframes AnimateHeader {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-250%);
+        display: none;
+    }
+}
+
+@keyframes AnimateHeaderSize {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 200px;
+    }
+}
+
 body {
     font-family: "Nunito", sans-serif;
     #root {
@@ -13,7 +33,7 @@ body {
         flex-direction: row;
         gap: map-get($gaps, app-first-gap);
         padding-left: calc(18% + map-get($paddings, app-first-padding)*2 + map-get($gaps, app-separator-gap));
-        
+        padding-top: calc(50px + map-get($paddings, app-first-padding)*2);
         a {
             text-decoration: none;
             color: map-get($colors, app-primary);
@@ -22,34 +42,76 @@ body {
                 text-decoration: underline;
             }
         }
-        
+
 
         .app {
-            width: 90%;
+            width: 80%;
+            min-width: calc(80% - 200px);
+            margin: auto;
+            overflow-x: hidden;
+        }
 
+        .app-header.scrolling {
+
+        }
+        .app-header {
+            * {
+                transition: all map-get($times, app-transition-time);
+            }
+            .top-row {
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                display: flex;
+                img {
+                    height: 80%;
+                }
+            }
+            overflow: hidden;
+            height: 50px;
+            background-color: map-get($colors, app-background-color-slightly-darker);
+            width: calc(100vw - 200px - calc(map-get(
+                $paddings,
+                app-first-padding
+            ) * 6) - 20px - 10px);
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 0px 10px 0px map-get($colors, app-background-color-darker);
+            border-radius: map-get($radiuses, app-first-border-radius);
+            padding: map-get($paddings, app-second-padding) map-get($paddings, app-first-padding);
+            position:fixed;
+            top:10px;
+            z-index: 1000;
+            right: 10px;
+            .bottom-row {
+                display:flex;
+                flex-direction: row;
+                gap: map-get($gaps, app-third-gap);
+            }
         }
     
         .app-picker {
-            img {
-                width: 80%;
-            }
             padding: map-get($paddings, app-first-padding);
-            height: calc(100vh - map-get($paddings, app-first-padding)*2);
+            height: calc(100vh - 20px - map-get($paddings, app-first-padding)*2);
             width: calc(18% - 10px);
-            border: map-get($lengths, app-button-border-width) solid map-get($colors, app-background-color-darker);
-            border-style: none solid none none;
+            min-width: 200px;
+            box-shadow: 0px 0px 10px 0px map-get($colors, app-background-color-darker);
+            background-color: map-get($colors, app-background-color-slightly-darker);
             display: flex;
             flex-direction: column;
             gap: map-get($gaps, app-first-gap);
             position:fixed;
-            left:0px;
-            top:0px;
+            left:10px;
+            top:10px;
+            border-radius: map-get($radiuses, app-first-border-radius);
+            overflow: auto;
             justify-content: space-between;
+
             .top-column {
                 display: flex;
                 flex-direction: column;
                 gap: map-get($gaps, app-first-gap);
-
             }
             .bottom-row {
                 display: flex;
@@ -144,7 +206,9 @@ body {
                 gap: map-get($gaps, app-separator-gap);
                 height: max-content;
                 .requirement {
-                    width: 100%;
+                    width: calc(
+                        100% - map-get($paddings, app-first-padding)*2 
+                    );
                     padding: map-get($paddings, app-first-padding);
                     border-radius: map-get($radiuses, app-first-border-radius);
                     background-color: map-get($colors, app-background-color-darker);
@@ -202,13 +266,58 @@ body {
 }
 
 
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: map-get($colors, app-background-color-darker);
+    border-radius: map-get($radiuses, app-first-border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: map-get($colors, app-primary);
+    border-radius: map-get($radiuses, app-first-border-radius);
+    border: 3px solid map-get($colors, app-background-color-darker);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: map-get($colors, app-primary-lighter);
+}
+
 @media screen and (max-width: 1024px) {
 
     .requirements {
         flex-direction: column !important;
     }
 
+    #root {
+        padding-top: 0px !important;
+    }
+    .app {
+        padding-top: 0px !important;
+    }
+
     .changelogs {
         flex-direction: column !important;
+    }
+
+    .app-header {
+        left: 10px;
+        right: unset;
+        width: 200px !important;
+        padding: map-get($paddings, app-first-padding) !important;
+        flex-direction: column;
+        img {
+            height: 50px !important;
+        }
+        height: 100px !important;
+    }
+    .app-picker {
+        top: 150px !important;
+        height: calc(
+            100vh - 160px - map-get($paddings, app-first-padding)*2
+        ) !important;
     }
 }

@@ -23,6 +23,13 @@ button {
             background-color: map-get($colors, app-primary-darker);
             border-color: map-get($colors, app-primary-darker);
         }
+        svg, svg path {
+            fill: map-get($colors, app-text-color-on-primary);
+        }
+    }
+    svg, svg path {
+        width: map-get($lengths, app-button-icon-size);
+        height: map-get($lengths, app-button-icon-size);
     }
     &.secondary {
         border-color: map-get($colors, app-primary);
