@@ -31,7 +31,7 @@ export default function NaflowsSelector({
         setOpen(!open);
       }}
     >
-      <div className="choice">
+      <div className="choice unique">
         <span>{userChoices[selectedValue]}</span>
         <svg
           style={{

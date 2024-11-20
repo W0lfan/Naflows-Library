@@ -32,7 +32,7 @@ body {
         display: flex;
         flex-direction: row;
         gap: map-get($gaps, app-first-gap);
-        padding-left: calc(18% + map-get($paddings, app-first-padding)*2 + map-get($gaps, app-separator-gap));
+        padding-left: calc(200px + map-get($paddings, app-first-padding)*2 + map-get($gaps, app-separator-gap));
         padding-top: calc(50px + map-get($paddings, app-first-padding)*2);
         a {
             text-decoration: none;
@@ -45,8 +45,8 @@ body {
 
 
         .app {
-            width: 80%;
-            min-width: calc(80% - 200px);
+            width: 90%;
+            min-width: calc(90% - 200px);
             margin: auto;
             overflow-x: hidden;
         }
@@ -69,21 +69,16 @@ body {
             }
             overflow: hidden;
             height: 50px;
-            background-color: map-get($colors, app-background-color-slightly-darker);
-            width: calc(100vw - 200px - calc(map-get(
-                $paddings,
-                app-first-padding
-            ) * 6) - 20px - 10px);
+            background-color: map-get($colors, app-background-color-darker);
+            width: calc(100vw - calc(map-get($paddings, app-second-padding)*4));
             min-width: 200px;
             display: flex;
             align-items: center;
-            box-shadow: 0px 0px 10px 0px map-get($colors, app-background-color-darker);
-            border-radius: map-get($radiuses, app-first-border-radius);
             padding: map-get($paddings, app-second-padding) map-get($paddings, app-first-padding);
             position:fixed;
-            top:10px;
+            top:0;
+            left:0;
             z-index: 1000;
-            right: 10px;
             .bottom-row {
                 display:flex;
                 flex-direction: row;
@@ -96,18 +91,15 @@ body {
             height: calc(100vh - 20px - map-get($paddings, app-first-padding)*2);
             width: calc(18% - 10px);
             min-width: 200px;
-            box-shadow: 0px 0px 10px 0px map-get($colors, app-background-color-darker);
-            background-color: map-get($colors, app-background-color-slightly-darker);
+            background-color: map-get($colors, app-background-color-darker);
             display: flex;
             flex-direction: column;
             gap: map-get($gaps, app-first-gap);
             position:fixed;
-            left:10px;
-            top:10px;
-            border-radius: map-get($radiuses, app-first-border-radius);
+            left:0;
+            top:calc(50px + calc(map-get($paddings, app-second-padding)*2));
             overflow: auto;
             justify-content: space-between;
-
             .top-column {
                 display: flex;
                 flex-direction: column;
@@ -286,10 +278,14 @@ body {
     background-color: map-get($colors, app-primary-lighter);
 }
 
-@media screen and (max-width: 1024px) {
+
+
+
+@media only screen and (max-width: 1024px) {
 
     .requirements {
         flex-direction: column !important;
+
     }
 
     #root {

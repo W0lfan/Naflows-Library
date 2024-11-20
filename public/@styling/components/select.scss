@@ -24,8 +24,12 @@
             map-get($colors, app-primary)
             transparent
             map-get($colors, app-primary);
+        .choice.unique {
+            border-radius: map-get($radiuses, app-second-border-radius) map-get($radiuses, app-second-border-radius) 0 0 !important;
+            
+        }
         .choice {
-            border-radius: map-get($radiuses, app-second-border-radius) map-get($radiuses, app-second-border-radius) 0 0;
+            border-radius: 0 !important;
         }
         .choices {
             border-color: map-get($colors, app-primary);
@@ -39,6 +43,8 @@
         align-items: center;
         cursor: pointer;
         justify-content: space-between;
+        -webkit-tap-highlight-color: transparent;
+
         width: calc(100% - 2 * (
             map-get($paddings, app-sides-select-padding)
         ));
@@ -53,7 +59,6 @@
         );
 
         user-select: none;
-        
         
     }
     .choices {
