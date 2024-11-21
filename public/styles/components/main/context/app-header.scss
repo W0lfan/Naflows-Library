@@ -1,0 +1,39 @@
+@import '../../../../@styling/main.scss';
+@import '../../../../@styling/import.scss';
+@import '../../../app-data.scss';
+
+.app-header {
+    * {
+        transition: all map-get($times, app-transition-time);
+    }
+    .top-row {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        display: flex;
+        img {
+            height: 80%;
+        }
+    }
+    overflow: hidden;
+    height: map-get($data, app-header-height);
+    width: calc(100vw - calc(map-get($paddings, app-second-padding)*4));
+    min-width: var(--app-menu);
+    display: flex;
+    align-items: center;
+    padding: map-get($paddings, app-second-padding) map-get($paddings, app-first-padding);
+    position:fixed;
+    border: 
+        map-get($lengths, app-select-border-width) 
+        solid     ;
+    border-color: map-get($colors, app-background-color-heavily-darker) !important;
+    border-style: none none solid none;
+    top:0;
+    left:0;
+    z-index: 1000;
+    .bottom-row {
+        display:flex;
+        flex-direction: row;
+        gap: map-get($gaps, app-third-gap);
+    }
+}

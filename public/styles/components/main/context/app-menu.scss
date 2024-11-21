@@ -1,0 +1,35 @@
+@import '../../../../@styling/main.scss';
+@import '../../../app-data.scss';
+
+.app-picker {
+
+    padding: map-get($paddings, app-second-padding) map-get($paddings, app-first-padding);
+    height: calc(100vh - 20px - map-get($paddings, app-first-padding)*2);
+    width: calc(map-get($data,app-menu-size) - 10px);
+    min-width: map-get($data,app-menu-size);
+    display: flex;
+    flex-direction: column;
+    gap: map-get($gaps, app-first-gap);
+    overflow: auto;
+    justify-content: space-between;
+
+    
+
+    .top-column {
+        display: flex;
+        flex-direction: column;
+        gap: map-get($gaps, app-first-gap);
+    }
+    .bottom-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: fit-content;
+        gap: map-get($gaps, app-second-gap);
+        * svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

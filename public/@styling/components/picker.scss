@@ -13,9 +13,18 @@
         display: flex;
         flex-direction: column;
         gap: map-get($gaps, app-third-gap);
+        border: 
+            map-get($lengths, app-select-border-width) solid 
+            map-get($colors, app-background-color-heavily-darker);
+        ;
+        border-style: solid none none none;
+        padding-top: map-get($gaps, app-third-gap);
+        
         .title {
-            font-size: 20px;
+
+            font-size: 13px;
             font-weight: bold;
+            color : map-get($colors, app-text-color-on-background-lighter)
         }
     }
 }
@@ -25,7 +34,7 @@
 
 .picker {
     width: calc(100% - 10px);
-    padding: map-get($paddings, app-selecter-padding);
+    padding: map-get($paddings, app-selecter-padding) 0;
     height: fit-content;
     position: relative;
 
@@ -41,7 +50,7 @@
             cursor: pointer;
             border-radius: map-get($radiuses, app-first-border-radius);
             display: flex;
-            padding: 5px 10px;
+            padding: 5px 0;
             flex-direction: row;
             align-items: center;
             z-index: 2;
@@ -65,10 +74,10 @@
         div .selection:before {
             content: "";
             position: absolute;
-            width: calc(100% - calc(map-get($paddings, app-selecter-padding) * 4));
+            width: 100%;
             height: 2px;
             bottom: 0;
-            left: calc(map-get($paddings, app-selecter-padding) * 2);
+            left: 0;
             background-color: map-get($colors, app-primary);
             visibility: hidden;
             transform: scaleX(0);

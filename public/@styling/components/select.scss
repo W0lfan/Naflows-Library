@@ -63,9 +63,9 @@
     }
     .choices {
         overflow: hidden;
-        width: 100%;
+        width: calc(100% - map-get($lengths, app-select-border-width)/2);
         left: calc(-1 * (
-            map-get($lengths, app-select-border-width)
+            map-get($lengths, app-select-border-width)/2
         ));
         transition: all map-get($times, app-transition-time-short);
         position:absolute;

@@ -21,19 +21,21 @@
         width: 100%;
     }
     to {
-        width: 200px;
+        width: var(--app-menu);
     }
 }
 
+
+
+
 body {
     font-family: "Nunito", sans-serif;
+    margin: 0;
     #root {
-        margin: auto;
-        display: flex;
-        flex-direction: row;
-        gap: map-get($gaps, app-first-gap);
-        padding-left: calc(200px + map-get($paddings, app-first-padding)*2 + map-get($gaps, app-separator-gap));
-        padding-top: calc(50px + map-get($paddings, app-first-padding)*2);
+        --app-menu : 200px;
+        padding-top: calc(
+            50px + map-get($paddings, app-first-padding)
+        );
         a {
             text-decoration: none;
             color: map-get($colors, app-primary);
@@ -45,79 +47,19 @@ body {
 
 
         .app {
-            width: 90%;
-            min-width: calc(90% - 200px);
+            width: 100%;
             margin: auto;
-            overflow-x: hidden;
-        }
-
-        .app-header.scrolling {
-
-        }
-        .app-header {
-            * {
-                transition: all map-get($times, app-transition-time);
-            }
-            .top-row {
-                width: 100%;
-                height: 100%;
-                align-items: center;
-                display: flex;
-                img {
-                    height: 80%;
-                }
-            }
-            overflow: hidden;
-            height: 50px;
-            background-color: map-get($colors, app-background-color-darker);
-            width: calc(100vw - calc(map-get($paddings, app-second-padding)*4));
-            min-width: 200px;
             display: flex;
-            align-items: center;
-            padding: map-get($paddings, app-second-padding) map-get($paddings, app-first-padding);
-            position:fixed;
-            top:0;
-            left:0;
-            z-index: 1000;
-            .bottom-row {
-                display:flex;
-                flex-direction: row;
-                gap: map-get($gaps, app-third-gap);
-            }
-        }
-    
-        .app-picker {
-            padding: map-get($paddings, app-first-padding);
-            height: calc(100vh - 20px - map-get($paddings, app-first-padding)*2);
-            width: calc(18% - 10px);
-            min-width: 200px;
-            background-color: map-get($colors, app-background-color-darker);
-            display: flex;
-            flex-direction: column;
-            gap: map-get($gaps, app-first-gap);
-            position:fixed;
-            left:0;
-            top:calc(50px + calc(map-get($paddings, app-second-padding)*2));
-            overflow: auto;
+            flex-direction: row;
             justify-content: space-between;
-            .top-column {
-                display: flex;
-                flex-direction: column;
-                gap: map-get($gaps, app-first-gap);
-            }
-            .bottom-row {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                width: 100%;
-                height: fit-content;
-                gap: map-get($gaps, app-second-gap);
-                * svg {
-                    width: 20px;
-                    height: 20px;
-                }
+            overflow: hidden;
+
+            .app-body {
+
             }
         }
+
+    
     
         .welcome-screen {
             width: 100%;
@@ -302,7 +244,7 @@ body {
     .app-header {
         left: 10px;
         right: unset;
-        width: 200px !important;
+        width: var(--app-menu) !important;
         padding: map-get($paddings, app-first-padding) !important;
         flex-direction: column;
         img {
